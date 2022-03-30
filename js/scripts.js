@@ -14,10 +14,15 @@ let pokemonRepository = (function() {
             pokemonList.push(item);
         }
     }
-    
+
+    function find(item) {
+        return pokemonList.filter(pokemon => pokemon.name === item);
+    }
+
     return {
         add: add,
-        getAll: getAll
+        getAll: getAll,
+        find: find
     };
 })();
 
