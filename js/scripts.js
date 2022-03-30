@@ -10,7 +10,7 @@ let pokemonRepository = (function() {
     }
 
     function add(item) {
-        if (typeof(item) === 'object') {
+        if (typeof(item) === 'object' && Object.keys(item).join() === Object.keys(pokemonList[1]).join()) {
             pokemonList.push(item);
         }
     }
