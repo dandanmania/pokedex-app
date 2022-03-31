@@ -27,13 +27,13 @@ let pokemonRepository = (function() {
 })();
 
 function pokemonListHeight(pokemon) {
-    document.write(pokemon.name + ' (Height: ' + pokemon.height + ' m) ')
-    if (pokemon.height > 0.6) {
-        document.write('- Wow, that\'s big! <br>')
-    }
-    else {
-        document.write('<br>')
-    }
+    let pokedex = document.querySelector('ul');
+    let dexEntry = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('button');
+    dexEntry.appendChild(button);
+    pokedex.appendChild(dexEntry);
 };
 
 pokemonRepository.getAll().forEach(pokemonListHeight);
