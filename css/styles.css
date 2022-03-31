@@ -27,3 +27,7 @@ li {
   border-radius: 2px;
   width: 200px;
 }
+
+.button:hover {
+  cursor:pointer
+}
