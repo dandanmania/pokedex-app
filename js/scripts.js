@@ -35,11 +35,11 @@ let pokemonRepository = (function() {
     }
 
     return {
-        add: add,
-        getAll: getAll,
-        find: find,
-        addListItem: addListItem,
-        showDetails: showDetails
+        add,
+        getAll,
+        find,
+        addListItem,
+        showDetails
     };
 })();
 
