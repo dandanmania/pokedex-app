@@ -2,10 +2,18 @@ body {
   padding: 5px;
   font-family: "Press Start 2P", cursive;
   font-size: 12px;
+  background-color: rgba(166, 0, 19, 0.7);
+}
+
+.main-title {
+  font-size: larger;
+  text-align: center;
 }
 
 ul {
   list-style-type: none;
+  text-align: center;
+  padding-left: 0%;
 }
 
 li {
