@@ -35,6 +35,9 @@ li {
   cursor:pointer
 }
 
+.group-list-item {
+  padding-left: 1rem;
+}
 
 /*--- Modal ---*/
 .modal-content {
