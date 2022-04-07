@@ -1,75 +1,14 @@
 body {
-  padding: 5px;
   font-family: "Press Start 2P", cursive;
   font-size: 12px;
   background-color: rgba(166, 0, 19, 0.7);
 }
 
-/*--- Modal ---*/
-#modal-container {
-  display: none;
-  position: fixed;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  overflow: auto;
-  text-align: center;
-}
-
-#modal-container.is-visible {
-  display: block;
-}
-
-.modal {
-  margin: auto;
-  display: inline-block;
-  box-sizing: border-box;
-  background: rgba(30, 30, 30, 0.7);
-  color: whitesmoke;
-  padding: 15px;
-  margin-top: 5%;
-  width: 100%;
-  max-width: 700px;
-  text-align: left;
-  border: 2px;
-  border-radius: 2px;
-}
-
-.modal-close {
-  float: right;
-  -webkit-appearance: none;
-  border: 0;
-  background: none;
-  color: whitesmoke;
-  text-decoration: none;
-  margin-top: 5px;
-  margin-right: 15px;
-}
-.modal-close:hover {
-  text-decoration: underline;
-}
-
-.modal > h1 {
-  margin-top: 25px;
-  margin-left: 15px;
-  text-transform: capitalize;
-}
-
-.modal > img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.modal > p {
-  margin-left: 15px;
-}
-
-
 /*--- Main Page ---*/
+.container {
+  margin-top: 70px;
+}
+
 .main-title {
   font-size: larger;
   padding-left: 7px;
@@ -88,9 +27,7 @@ li {
   background: rgb(60, 60, 60);
   color: whitesmoke;
   padding: 12px 28px;
-  border: 2px;
-  border-radius: 2px;
-  width: 200px;
+  width: 300px;
   text-transform: capitalize;
 }
 
@@ -98,13 +35,22 @@ li {
   cursor:pointer
 }
 
-/*--- Mobile ---*/
-@media all and (max-width: 750px) {
-  .main-title{
-    text-align: center;
-  }
 
-  ul{
-    text-align: center;
-  }
+/*--- Modal ---*/
+.modal-content {
+  background-color: rgba(40, 40, 40, 0.8);
+  color: whitesmoke;
+}
+.modal-title {
+  text-transform: capitalize;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.modal-body img {
+  height: 10rem;
+}
+
+.modal-body p{
+  padding-left: 0.5rem;
 }
