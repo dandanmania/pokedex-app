@@ -8,7 +8,7 @@ let pokemonRepository = (function() {
     }
 
     function add(item) {
-        if (typeof(item) === 'object' /*&& Object.keys(item).join() === Object.keys(pokemonList[1]).join()*/) {
+        if (typeof(item) === 'object') {
             pokemonList.push(item);
         }
     }
@@ -44,8 +44,12 @@ let pokemonRepository = (function() {
         pokemonName.innerText = pokemon.name;
         let pokemonImg = document.createElement('img');
         pokemonImg.setAttribute('src', pokemon.imageUrl);
+        let dexNo = document.createElement('p');
+        dexNo.innerText = 'Dex No: ' + pokemon.id;
         let pokemonHeight = document.createElement('p');
         pokemonHeight.innerText = 'Height: ' + (Math.round(pokemon.height * 10) / 100) + ' m';
+        let pokemonWeight = document.createElement('p');
+        pokemonWeight.innerText = 'Weight: ' + (Math.round(pokemon.weight * 10) / 100) + ' kg';
 
         //Clear Modal
         entryTitle.innerText = '';
@@ -54,7 +58,9 @@ let pokemonRepository = (function() {
         //Add Pokedex Entry into Modal
         entryTitle.append(pokemonName);
         entryBody.append(pokemonImg);
+        entryBody.append(dexNo);
         entryBody.append(pokemonHeight);
+        entryBody.append(pokemonWeight);
     }
 
     function loadList() {
@@ -80,11 +86,13 @@ let pokemonRepository = (function() {
         }).then(function(details) {
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
+            item.weight = details.weight;
             item.types = details.types;
+            item.id = details.id;
         }).catch(function(e) {
             console.error(e);
         });
-    };
+    }
 
     return {
         add,
