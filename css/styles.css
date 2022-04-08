@@ -35,10 +35,6 @@ li {
   cursor:pointer
 }
 
-.group-list-item {
-  padding-left: 1rem;
-}
-
 /*--- Modal ---*/
 .modal-content {
   background-color: rgba(40, 40, 40, 0.8);
