@@ -50,6 +50,12 @@ let pokemonRepository = (function() {
         pokemonHeight.innerText = 'Height: ' + (Math.round(pokemon.height * 10) / 100) + ' m';
         let pokemonWeight = document.createElement('p');
         pokemonWeight.innerText = 'Weight: ' + (Math.round(pokemon.weight * 10) / 100) + ' kg';
+        let pokemonType = document.createElement('p');
+        let typeResult = pokemon.types.map(o => o.type.name).join(', ');
+        pokemonType.innerText = 'Types: ' + typeResult;
+        let pokemonAbilities = document.createElement('p');
+        let abilitiesResult = pokemon.abilities.map(o => o.ability.name).join(', ');
+        pokemonAbilities.innerText = 'Abilities: ' + abilitiesResult;
 
         //Clear Modal
         entryTitle.innerText = '';
@@ -61,6 +67,8 @@ let pokemonRepository = (function() {
         entryBody.append(dexNo);
         entryBody.append(pokemonHeight);
         entryBody.append(pokemonWeight);
+        entryBody.append(pokemonType);
+        entryBody.append(pokemonAbilities);
     }
 
     function loadList() {
@@ -88,6 +96,7 @@ let pokemonRepository = (function() {
             item.height = details.height;
             item.weight = details.weight;
             item.types = details.types;
+            item.abilities = details.abilities;
             item.id = details.id;
         }).catch(function(e) {
             console.error(e);
