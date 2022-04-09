@@ -32,7 +32,7 @@ li {
 }
 
 .button:hover {
-  cursor:pointer
+  cursor: pointer;
 }
 
 /*--- Modal ---*/
@@ -50,6 +50,6 @@ li {
   height: 10rem;
 }
 
-.modal-body p{
+.modal-body p {
   padding-left: 0.5rem;
 }
