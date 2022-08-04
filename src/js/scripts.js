@@ -14,21 +14,49 @@ let pokemonRepository = (function() {
     }
 
     function find(item) {
-        return pokemonList.filter(pokemon => pokemon.name === item);
+        let filteredList = pokemonList.filter(pokemon => pokemon.name === item);
+        console.log(filteredList);
+        let query = item;
+        let dexEntry = $('.dexEntry');
+            dexEntry.each(function() {
+                let item = $(this);
+                let pokemonName = item.text();
+                    if (pokemonName.includes(query)) {
+                        item.show();
+                    } else {
+                        item.hide();
+                    }
+            })
+    } 
+
+    function pokemonSearch() {
+        let pokedex = document.querySelector('.search-container');
+        let searchBar = document.createElement('input');
+        searchBar.classList.add('search-bar')
+        searchBar.addEventListener('keyup', function () {find(searchBar.value.toLowerCase())})
+        pokedex.appendChild(searchBar);
     }
 
     function addListItem(pokemon) {
         let pokedex = document.querySelector('.pokemon-list');
         let dexEntry = document.createElement('li');
         let button = document.createElement('button');
-        dexEntry.classList.add('group-list-item');
+        let pokemonName = pokemon.name;
+        dexEntry.classList.add('group-list-item', 'dexEntry');
         button.addEventListener('click', function () {showDetails(pokemon)});
-        button.innerText = pokemon.name;
-        button.classList.add('button', 'btn', 'btn-secondary');
+        button.classList.add('button', 'btn', 'btn-secondary', 'btn-text');
         button.setAttribute('data-toggle', 'modal');
         button.setAttribute('data-target', '#dexModal');
         dexEntry.appendChild(button);
         pokedex.appendChild(dexEntry);
+
+        loadDetails(pokemon).then(function() {
+            let spriteImg = document.createElement('img');
+            spriteImg.src = pokemon.spriteUrl;
+            spriteImg.classList.add('pokemon-sprite');
+            button.append(spriteImg)
+            button.append(pokemonName);
+        });
     }
 
     function showDetails(pokemon) {
@@ -78,7 +106,7 @@ let pokemonRepository = (function() {
             json.results.forEach(function (item) {
                 let pokemon = {
                     name: item.name,
-                    detailsUrl: item.url
+                    detailsUrl: item.url,
                 };
                 add(pokemon);
             });
@@ -98,6 +126,7 @@ let pokemonRepository = (function() {
             item.types = details.types;
             item.abilities = details.abilities;
             item.id = details.id;
+            item.spriteUrl = details.sprites.versions['generation-vii'].icons.front_default;
         }).catch(function(e) {
             console.error(e);
         });
@@ -110,7 +139,8 @@ let pokemonRepository = (function() {
         addListItem,
         showDetails,
         loadList,
-        loadDetails
+        loadDetails,
+        pokemonSearch,
     };
 })();
 
@@ -120,4 +150,5 @@ function pokemonListAdd (pokemon) {
 
 pokemonRepository.loadList().then(function() {
     pokemonRepository.getAll().forEach(pokemonListAdd);
+    pokemonRepository.pokemonSearch();
 });

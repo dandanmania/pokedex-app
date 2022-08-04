@@ -14,6 +14,18 @@ body {
   padding-bottom: 1rem;
 }
 
+.search-bar {
+    width: 27rem;
+    height: 30px;
+    outline: 0 rgba(166,0,19,0.7);
+    border-width: 1px;
+    border-radius: 40px !important;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
 ul {
   list-style-type: none;
   padding-left: 0%;
@@ -27,12 +39,23 @@ li {
   background: rgb(60, 60, 60);
   color: whitesmoke;
   padding: 12px 28px;
-  width: 300px;
+  width: 400px;
   text-transform: capitalize;
 }
 
 .button:hover {
   cursor: pointer;
+}
+
+.btn-text {
+  padding-top: 10px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+}
+
+.pokemon-sprite {
+  margin-bottom: 10px;
+  margin-right: 12px;
 }
 
 /*--- Modal ---*/
