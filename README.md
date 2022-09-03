@@ -11,6 +11,8 @@ The app uses HTML, CSS, and JavaScript to load data of all 151 Generation 1 poke
 - Types
 - Abilities
 
+The Live Version of the App: https://dandanmania.github.io/pokedex-app/
+
 ## Libraries and Frameworks
 
 - jQuery and Bootstrap
